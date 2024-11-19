@@ -3,7 +3,12 @@ import os, time
 # -------------------------------------------- MENU PRINCIPAL --------------------------------------------
 
 os.system("cls")
-ADN = input("Ingrese las filas del ADN separadas por espacios: ")
+ADN = ["CTGTTC", "GATTCA", "CAACAT", "GAGCTA", "ATTGCG", "TTTTCA"]
+#for i in range(6):
+#    cadena = ""
+#    while len(cadena)!=6:
+#        cadena = input(f"Ingrese la cadena n° {i+1} del ADN: ")
+#    ADN.append(cadena)
 
 salir = False
 while not salir:
@@ -24,11 +29,13 @@ while not salir:
         
         os.system("cls")
         infectado = 0
-        for base in range(1, len(ADN)-2):
-            if ADN[base] == ADN[base-1] == ADN[base+1] == ADN [base+2]:
-                infectado = 1
-            if ADN[base][base] == ADN[base-1][base] == ADN[base+1][base] == ADN [base+2][base]:
-                infectado = 2
+        for palabra in range(len(ADN)):
+            for base in range(1, len(ADN)-2):
+                if ADN[palabra][base] == ADN[palabra-1][base] == ADN[palabra-2][base] == ADN [palabra-3][base]:
+                    infectado = 2
+                if ADN[palabra][base] == ADN[palabra][base-1] == ADN[palabra][base+1] == ADN [palabra][base+2]:
+                    infectado = 1
+                
 
         if infectado == 1:
             print("El ADN ingresado está MUTADO HORIZONTALMENTE")

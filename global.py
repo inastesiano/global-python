@@ -14,14 +14,19 @@ Original file is located at
 
 *   Puede realizarse en grupos de hasta 4 personas.
 *   El entregable es un repositorio de Git que contenga única carpeta con los siguientes archivos:
- - README.md donde se explique cómo ejecutar el programa y se indique cuáles son los participantes del grupo. Se puede incluir un caso de ejemplo que muestre como ejecutar el programa y cuales son los outputs esperados.
+ - README.md donde se explique cómo ejecutar el programa y se indique cuáles son los participantes del grupo. Se puede incluir un 
+ caso de ejemplo que muestre como ejecutar el programa y cuales son los outputs esperados.
  - clases.py donde se declaren la clase "Detector", "Mutador", "Radiacion", "Virus" y "Sanador".
- - ejecutable.py donde se ejecute el programa propiamente dicho. Este archivo deben instanciar las clases necesarias que fueron creadas en los archivos nombrados anteriormente. En Python es posible importar una clase declarada en un archivo en otro archivo distinto (buscar información al respecto).
+ - ejecutable.py donde se ejecute el programa propiamente dicho. Este archivo deben instanciar las clases necesarias que fueron 
+ creadas en los archivos nombrados anteriormente. En Python es posible importar una clase declarada en un archivo en otro archivo
+   distinto (buscar información al respecto).
  - Pueden o no incluir otros archivos que consideren pertinentes.
 
 ##**Poblema**
 
-El ADN de una célula cuenta con cuatro bases nitrogenadas: Adenina (A), Timina (T), Citosina (C) y Guanina (G). Analizaremos un problema donde una secuencia de ADN se puede representar en una matriz de 6x6. Por ejemplo: lo siguiente sería una secuencia de ADN.
+El ADN de una célula cuenta con cuatro bases nitrogenadas: Adenina (A), Timina (T), Citosina (C) y Guanina (G). 
+Analizaremos un problema donde una secuencia de ADN se puede representar en una matriz de 6x6. 
+Por ejemplo: lo siguiente sería una secuencia de ADN.
 
 
 |   |   |   |   |   |   |
@@ -34,7 +39,9 @@ El ADN de una célula cuenta con cuatro bases nitrogenadas: Adenina (A), Timina 
 | C | T | G | T | T | C |
 
 
-Para representar una matriz en Python usaremos tipos nativos de datos, es decir, no utilizaremos paquetes (no Pandas, no NumPy, etc). Es por eso que las representaremos como una lista de strings, donde cada string represente una fila de la matriz. Por ejemplo: la matriz anterior sería:
+Para representar una matriz en Python usaremos tipos nativos de datos, es decir, no utilizaremos paquetes (no Pandas, no NumPy, etc). 
+Es por eso que las representaremos como una lista de strings, donde cada string represente una fila de la matriz.
+ Por ejemplo: la matriz anterior sería:
 
 
 
@@ -43,13 +50,14 @@ matriz = ["AGATCA", "GATTCA", "CAACAT", "GAGCTA", "ATTGCG", "CTGTTC"]
 ```
 
 
-Cuando cualquier base nitrogenada se encuentra repetida por lo menos 4 veces, ya sea en forma vertical, horizontal o diagonal, se considera que el ADN es un mutante. Por ejemplo:
+Cuando cualquier base nitrogenada se encuentra repetida por lo menos 4 veces, ya sea en forma vertical, horizontal o diagonal, se 
+considera que el ADN es un mutante. Por ejemplo:
 
 **Mutante horizontal de timinas**
 
 |   |   |   |   |   |   |
 |---|---|---|---|---|---|
-| **T** | **T** | **T** | **T** | C | A |
+| T | T | T | T | C | A |
 | G | A | T | T | C | A |
 | C | A | A | T | A | T |
 | G | A | G | T | T | A |
@@ -65,10 +73,10 @@ mutante_horizontal = ["TTTTCA", "GATTCA", "CAACAT", "GAGCTA", "ATTGCG", "CTGTTC"
 
 |   |   |   |   |   |   |
 |---|---|---|---|---|---|
-| A | G | A | **T** | C | A |
-| G | A | T | **T** | C | A |
-| C | A | A | **T** | A | T |
-| G | A | G | **T** | T | A |
+| A | G | A | T | C | A |
+| G | A | T | T | C | A |
+| C | A | A | T | A | T |
+| G | A | G | T | T | A |
 | A | T | T | G | C | G |
 | C | T | G | T | T | C |
 
@@ -82,10 +90,10 @@ mutante_vertical = ["AGATCA", "GATTCA", "CAATAT", "GAGTTA", "ATTGCG", "CTGTTC"]
 
 |   |   |   |   |   |   |
 |---|---|---|---|---|---|
-|**T** | G | A | T | C | A |
-| G | **T** | T | T | C | A |
-| C | A | **T** | C | A | T |
-| G | A | G | **T** | T | A |
+| T | G | A | T | C | A |
+| G | T | T | T | C | A |
+| C | A | T | C | A | T |
+| G | A | G | T | T | A |
 | A | T | T | G | C | G |
 | C | T | G | T | T | C |
 
@@ -120,7 +128,9 @@ Esta clase debe contener:
   - El atributo base_nitrogenada, la cual especificará cuál de las bases se repetirá 4 veces.
   - Por lo menos 2 atributo más que consideren pertinentes. Pueden ser los heredados de su clase padre.
   - Método constructor (init) con sus argumentos para definir los atributos al instanciar un objeto.
-  - Método crear_mutante. Éste debe tener los argumentos base_nitrogenada, posicion_inicial (para saber dónde insertar la mutación) y orientacion_de_la_mutacion (posibles valores: "H" de horizontal o "V" de vertical) y devolver la matriz con las modificaciones pertinentes. Debe incluir manejo de errores (bloques try-except).
+  - Método crear_mutante. Éste debe tener los argumentos base_nitrogenada, posicion_inicial (para saber dónde insertar la mutación)
+    y orientacion_de_la_mutacion (posibles valores: "H" de horizontal o "V" de vertical) y devolver la matriz con las modificaciones 
+    pertinentes. Debe incluir manejo de errores (bloques try-except).
 
 ####**Clase Virus**
 Clase hija de Mutador. Los virus solo crean mutantes diagonales.
@@ -128,14 +138,17 @@ Esta clase debe contener:
   - El atributo base_nitrogenada, la cual especificará cuál de las bases se repetirá 4 veces.
   - Por lo menos 2 atributos más que consideren pertinentes. Pueden ser los heredados de su clase padre.
   - Método constructor (init) con sus argumentos para definir los atributos al instanciar un objeto.
-  - Método crear_mutante. Éste debe tener los argumentos base_nitrogenada y posicion_inicial (para saber dónde insertar la mutación) y devolver la matriz con las modificaciones pertinentes. Debe incluir manejo de errores (bloques try-except).
+  - Método crear_mutante. Éste debe tener los argumentos base_nitrogenada y posicion_inicial (para saber dónde insertar 
+  la mutación) y devolver la matriz con las modificaciones pertinentes. Debe incluir manejo de errores (bloques try-except).
 
 
 ####**Clase Sanador**
 Debe contener:
   - Por lo menos 2 atributos que consideren pertinentes.
   - Método constructor (init) con sus argumentos para definir los atributos al instanciar un objeto.
-  - Método sanar_mutantes, encargado de sanar cualquier tipo de mutación. Éste debe tener como argumento la matriz de ADN, revisar si existen mutaciones y, si las hay, generar aleatoriamente un ADN completamente nuevo que **no** tenga mutaciones y retornarlo. Consejo: esta clase va a necesitar el método detectar_mutante, que ya lo han definido en otra clase!
+  - Método sanar_mutantes, encargado de sanar cualquier tipo de mutación. Éste debe tener como argumento la matriz de ADN, 
+      revisar si existen mutaciones y, si las hay, generar aleatoriamente un ADN completamente nuevo que **no** tenga 
+      mutaciones y retornarlo. Consejo: esta clase va a necesitar el método detectar_mutante, que ya lo han definido en otra clase!
 
 
 ###**ejecutable.py**
