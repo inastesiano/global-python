@@ -1,10 +1,34 @@
-class Detector:
-    def __init__(self):
-        pass
+import os
 
-    def detectar_mutantes(self):
-        infectado = True
-        pass
+class Detector:
+    def __init__(self, ADN):
+        self.ADN = ADN
+
+    def detectar_mutantes(self, ADN):
+        infectado = 0
+        
+        #HORIZONTAL
+        for palabra in range(len(ADN)):
+            for base in range(1, len(ADN)-2):
+                if ADN[palabra][base] == ADN[palabra][base-1] == ADN[palabra][base+1] == ADN [palabra][base+2]:
+                    infectado = 1
+                    break
+
+        #VERTICAL
+        for palabra in range(1, len(ADN)-2):
+            for letra in range(len(ADN)):
+                if ADN[palabra-1][letra] == ADN[palabra][letra] == ADN[palabra+1][letra] == ADN[palabra+2][letra]:
+                    infectado = 2
+                    break
+                
+        if infectado == 1:
+            print("El ADN ingresado está MUTADO HORIZONTALMENTE")
+        if infectado == 2:
+            print("El ADN ingresado está MUTADO VERTICALMENTE")
+        else:
+            print("El ADN ingresado está SANO")
+
+        return bool(infectado)
 
 class Mutador:
     def __init__(self):
@@ -33,7 +57,6 @@ class Sanador:
     def __init__(self):
         pass
 
-    def sanar_mutantes(self, matriz_ADN):
-        
+    def sanar_mutantes(self, matriz_ADN): 
         pass
 
